@@ -2,6 +2,7 @@
   "name": "personal-website",
   "version": "0.1.0",
   "private": true,
+  
   "dependencies": {
     "@emailjs/browser": "^3.12.1",
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
@@ -45,5 +46,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
   }
 }
