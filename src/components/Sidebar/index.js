@@ -1,47 +1,44 @@
-import {Link, NavLink} from 'react-router-dom'
-import './index.scss'
-import LogoS from '../../assets/images/J.png'
-import LogoSubtitle from '../../assets/images/JASKOMAL-2.png'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faHome, faProjectDiagram, faUser } from '@fortawesome/free-solid-svg-icons'
-import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
+import React, { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import './index.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faHome, faProjectDiagram, faUser, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 
-const Sidebar = ()=> (
-    <div className='nav-bar'>
-        <Link className = 'logo' to = '/'>
-            <img src={LogoS} alt = "logo"/>
-            <img className = "sub-logo" src = {LogoSubtitle} alt = "logo"/>
-        </Link>
-        <nav>
-            <NavLink exact= "true" activeclassname = "active" to = "/">
-                <FontAwesomeIcon icon = {faHome} color= "#4d4d4e" />
-            </NavLink>
-            <NavLink exact= "true" activeclassname = "active" className = "about-link"to = "/about">
-                <FontAwesomeIcon icon = {faUser} color= "#4d4d4e" />
-            </NavLink>
+const Sidebar = () => {
+    const [isOpen, setIsOpen] = useState(false);
 
-            <NavLink exact= "true" activeclassname = "active" className="project-link" to = "/project">
-                <FontAwesomeIcon icon = {faProjectDiagram} color= "#4d4d4e" />
-            </NavLink>
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
 
-            <NavLink exact= "true" activeclassname = "active" className="contact-link" to = "/contact">
-                <FontAwesomeIcon icon = {faEnvelope} color= "#4d4d4e" />
-            </NavLink>
-            
-        </nav>
-        <ul>
-            <li>
-                <a target = "_blank" rel = "noreferrer" href='https://www.linkedin.com/in/jaskomalmattu/'>
-                    <FontAwesomeIcon icon = {faLinkedinIn} color = "#4d4d4e"/>
+    return (
+        <div className='nav-bar'>
+            <button className="menu-button" onClick={toggleMenu}>
+                <FontAwesomeIcon icon={isOpen ? faTimes : faBars} color="#4d4d4e" />
+            </button>
+            <div className={isOpen ? "menu-content open" : "menu-content"}>
+                <NavLink exact="true" activeClassName="active" to="/">
+                    <FontAwesomeIcon icon={faHome} color="#4d4d4e" />
+                </NavLink>
+                <NavLink exact="true" activeClassName="active" to="/about">
+                    <FontAwesomeIcon icon={faUser} color="#4d4d4e" />
+                </NavLink>
+                <NavLink exact="true" activeClassName="active" to="/project">
+                    <FontAwesomeIcon icon={faProjectDiagram} color="#4d4d4e" />
+                </NavLink>
+                <NavLink exact="true" activeClassName="active" to="/contact">
+                    <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />
+                </NavLink>
+                <a href='https://www.linkedin.com/in/jaskomalmattu/' target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faLinkedinIn} color="#4d4d4e" />
                 </a>
-            </li>
-            <li>
-                <a target = "_blank" rel = "noreferrer" href='https://github.com/jaskomalsingh'>
-                    <FontAwesomeIcon icon = {faGithub} color = "#4d4d4e"/>
+                <a href='https://github.com/jaskomalsingh' target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faGithub} color="#4d4d4e" />
                 </a>
-            </li>
-        </ul>
-    </div>
-)
+            </div>
+        </div>
+    );
+};
 
-export default Sidebar
+export default Sidebar;

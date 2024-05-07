@@ -7,7 +7,7 @@
 
 .top-tags{
     bottom:auto;
-    top: 35px;
+    top: 55px;
 }
 
 .tags{
@@ -64,7 +64,7 @@
 
             &::before{
                 content: '<h1>';
-                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                font-family: 'Times New Roman', Times, serif;
                 font-size: 18px;
                 position: absolute;
                 margin-top: -10px;
@@ -74,8 +74,8 @@
             }
 
             &::after{
-                content: '<h1/>';
-                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                content: '</h1>';
+                font-family: 'Times New Roman', Times, serif;
                 font-size: 18px;
                 line-height: 18px;
                 position: absolute;
