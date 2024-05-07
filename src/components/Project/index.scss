@@ -36,6 +36,12 @@
             height: auto;
             border-radius: 5px;
         }
+         video {
+        width: 100%;      // Ensures video takes up the entire card width
+        height: auto;     // Maintains aspect ratio
+        border-radius: 5px; // Matches your image border-radius for consistency
+        display: block;   // Ensures there is no extra space around the video
+    }
 
         p, a {
             color: #ccc;
