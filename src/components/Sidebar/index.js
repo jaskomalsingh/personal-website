@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './index.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faHome, faProjectDiagram, faUser, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -12,28 +12,32 @@ const Sidebar = () => {
         setIsOpen(!isOpen);
     };
 
+    const closeMenu = () => {
+        setIsOpen(false); // Explicitly close the menu
+    };
+
     return (
         <div className='nav-bar'>
             <button className="menu-button" onClick={toggleMenu}>
                 <FontAwesomeIcon icon={isOpen ? faTimes : faBars} color="#4d4d4e" />
             </button>
             <div className={isOpen ? "menu-content open" : "menu-content"}>
-                <NavLink exact="true" activeClassName="active" to="/">
+                <NavLink exact="true" activeClassName="active" to="/" onClick={closeMenu}>
                     <FontAwesomeIcon icon={faHome} color="#4d4d4e" />
                 </NavLink>
-                <NavLink exact="true" activeClassName="active" to="/about">
+                <NavLink exact="true" activeClassName="active" to="/about" onClick={closeMenu}>
                     <FontAwesomeIcon icon={faUser} color="#4d4d4e" />
                 </NavLink>
-                <NavLink exact="true" activeClassName="active" to="/project">
+                <NavLink exact="true" activeClassName="active" to="/project" onClick={closeMenu}>
                     <FontAwesomeIcon icon={faProjectDiagram} color="#4d4d4e" />
                 </NavLink>
-                <NavLink exact="true" activeClassName="active" to="/contact">
+                <NavLink exact="true" activeClassName="active" to="/contact" onClick={closeMenu}>
                     <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />
                 </NavLink>
-                <a href='https://www.linkedin.com/in/jaskomalmattu/' target="_blank" rel="noopener noreferrer">
+                <a href='https://www.linkedin.com/in/jaskomalmattu/' target="_blank" rel="noopener noreferrer" onClick={closeMenu}>
                     <FontAwesomeIcon icon={faLinkedinIn} color="#4d4d4e" />
                 </a>
-                <a href='https://github.com/jaskomalsingh' target="_blank" rel="noopener noreferrer">
+                <a href='https://github.com/jaskomalsingh' target="_blank" rel="noopener noreferrer" onClick={closeMenu}>
                     <FontAwesomeIcon icon={faGithub} color="#4d4d4e" />
                 </a>
             </div>

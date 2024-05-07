@@ -31,7 +31,7 @@
         display: flex;
     }
 
-    .menu-content a, .menu-content NavLink {
+    .menu-content a, .menu-content .NavLink {
         font-size: 16px;
         color: #4d4d4e;
         padding: 10px;
@@ -40,9 +40,13 @@
         text-decoration: none;
         display: block;
 
-        &:hover {
+        &:hover .fa , &.active .fa {
             color: #ffd700;
         }
+    }
+
+    .fa {
+        color: #4d4d4e;
     }
 
     .menu-content .fa {

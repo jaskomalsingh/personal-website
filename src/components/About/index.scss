@@ -1,0 +1,13 @@
+// Ensuring 'About Me' does not wrap
+.text-zone h1 {
+    white-space: nowrap; // Prevents wrapping of the title
+}
+
+// Media query for mobile devices
+@media (max-width: 600px) { // Adjust this according to your breakpoint needs
+    .scrollable-content {
+        height: 200px; // Adjust height as necessary for your design
+        overflow-y: auto; // Enables vertical scrolling
+        padding-right: 10px; // Gives space for the scrollbar
+    }
+}
